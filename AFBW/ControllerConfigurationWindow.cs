@@ -154,6 +154,30 @@ namespace KSPAdvancedFlyByWire
                     AdvancedFlyByWire.Instance.SaveState(null);
                 }
                 GUILayout.EndHorizontal();
+
+                GUILayout.Space(8);
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Invert IVA cam horizontal");
+                GUILayout.FlexibleSpace();
+                state = GUILayout.Toggle(m_Controller.invertIVAH, "");
+                if (state != m_Controller.invertIVAH)
+                {
+                    m_Controller.SetInvertIVAH(state);
+                    AdvancedFlyByWire.Instance.SaveState(null);
+                }
+                GUILayout.EndHorizontal();
+
+                GUILayout.Space(8);
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Invert IVA cam vertical");
+                GUILayout.FlexibleSpace();
+                state = GUILayout.Toggle(m_Controller.invertIVAV, "");
+                if (state != m_Controller.invertIVAV)
+                {
+                    m_Controller.SetInvertIVAV(state);
+                    AdvancedFlyByWire.Instance.SaveState(null);
+                }
+                GUILayout.EndHorizontal();
             }
 
             GUILayout.Label("If some axes below are not displaying 0.0 when the controller is left untouched then it needs calibration.");

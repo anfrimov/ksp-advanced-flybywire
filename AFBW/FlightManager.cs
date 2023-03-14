@@ -72,7 +72,8 @@ namespace KSPAdvancedFlyByWire
                     CameraController.Instance.UpdateCameraProperties
                     (
                         m_CameraPitch.Update(), m_CameraHeading.Update(),
-                        m_CameraZoom.Update(), config.cameraSensitivity
+                        m_CameraZoom.Update(), config.cameraSensitivity,
+                        config.invertIVAH, config.invertIVAV
                     );
                 }
             }

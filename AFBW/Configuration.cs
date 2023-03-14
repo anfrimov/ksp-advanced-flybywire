@@ -23,6 +23,8 @@ namespace KSPAdvancedFlyByWire
         public float incrementalActionSensitivity = 1.50f;
         public float cameraSensitivity = 0.05f;
         public bool manualDeadZones = false;
+        public bool invertIVAH = false;
+        public bool invertIVAV = false;
 
         [XmlIgnore()]
         public bool presetEditorOpen = false;
@@ -76,6 +78,16 @@ namespace KSPAdvancedFlyByWire
                 iface.manualDeadZones = state;
             }
         }
+
+        public void SetInvertIVAH(bool state)
+        {
+            invertIVAH = state;
+        }
+
+        public void SetInvertIVAV(bool state)
+        {
+            invertIVAV = state;
+        }
     }
 
     public class Configuration
@@ -126,6 +138,8 @@ namespace KSPAdvancedFlyByWire
             }
 
             controller.SetManualDeadZones(controller.manualDeadZones);
+            controller.SetInvertIVAH(controller.invertIVAH);
+            controller.SetInvertIVAV(controller.invertIVAV);
             controller.iface.analogEvaluationCurve = CurveFactory.Instantiate(controller.analogInputCurve);
             controller.iface.buttonPressedCallback = pressedCallback;
             controller.iface.buttonReleasedCallback = releasedCallback;

@@ -37,7 +37,7 @@ namespace KSPAdvancedFlyByWire
             LoadReflectionFields();
         }
 
-        public void UpdateCameraProperties(float camPitch, float camYaw, float camZoom, float camSensitivity)
+        public void UpdateCameraProperties(float camPitch, float camYaw, float camZoom, float camSensitivity, bool invertIVAH, bool invertIVAV)
         {
             switch (CameraManager.Instance.currentCameraMode)
             {
@@ -63,8 +63,10 @@ namespace KSPAdvancedFlyByWire
                     if (this.ivaCamFieldsLoaded)
                     {
                         InternalCamera cam = InternalCamera.Instance;
-                        ivaPitchField.SetValue(cam, (float)ivaPitchField.GetValue(cam) + camPitch * camSensitivity * ivaPanStep);
-                        ivaYawField.SetValue(cam, (float)ivaYawField.GetValue(cam) + camYaw * camSensitivity * ivaPanStep);
+                        int IVAV = invertIVAV ? -1 : 1;
+                        int IVAH = invertIVAH ? -1 : 1;
+                        ivaPitchField.SetValue(cam, (float)ivaPitchField.GetValue(cam) + camPitch * camSensitivity * ivaPanStep * IVAV);
+                        ivaYawField.SetValue(cam, (float)ivaYawField.GetValue(cam) + camYaw * camSensitivity * ivaPanStep * IVAH);
                     }
                     if (camZoom != 0)
                     {
