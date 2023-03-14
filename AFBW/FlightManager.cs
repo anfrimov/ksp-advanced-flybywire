@@ -293,7 +293,7 @@ namespace KSPAdvancedFlyByWire
                     agModule.UpdateAxisGroup(KSPAxisGroup.TranslateX, state.X);
                     agModule.UpdateAxisGroup(KSPAxisGroup.TranslateY, state.Y);
                     agModule.UpdateAxisGroup(KSPAxisGroup.TranslateZ, state.Z);
-                    agModule.UpdateAxisGroup(KSPAxisGroup.MainThrottle, state.mainThrottle);
+                    agModule.UpdateAxisGroup(KSPAxisGroup.MainThrottle, state.mainThrottle * 2 - 1);
                     agModule.UpdateAxisGroup(KSPAxisGroup.WheelSteer, state.wheelSteer);
                     agModule.UpdateAxisGroup(KSPAxisGroup.WheelThrottle, state.wheelThrottle);
                     agModule.UpdateAxisGroup(KSPAxisGroup.Custom01, state.custom_axes[0]);
